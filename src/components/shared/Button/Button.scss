@@ -1,0 +1,75 @@
+@use './../../../scss//abstracts/mixins';
+
+.btn {
+  --color: var(--gray-3);
+  --hover-color: var(--color);
+  --disabled-color: var(--color);
+  --selected-color: var(--color);
+
+  --bg-color: transparent;
+  --hover-bg-color: color-mix(in oklab, var(--bg-color) 90%, rgb(255, 255, 255));
+  --active-bg-color: color-mix(in oklab, var(--bg-color) 95%, black);
+  --disabled-bg-color: var(--gray-1);
+  --selected-bg-color: var(--bg-color);
+
+  --border-color: var(--bg-color);
+  --hover-border-color: var(--border-color);
+  --active-border-color: var(--border-color);
+  --disabled-border-color: var(--disabled-bg-color);
+  --selected-border-color: var(--orange-1);
+
+  --focus-box-shadow: var(--orange-1-50);
+}
+
+.btn {
+  @include mixins.button;
+
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  color: var(--color);
+  border-color: var(--border-color);
+  background-color: var(--bg-color);
+
+  @media (hover: hover) {
+    &:where(&:hover) {
+      color: var(--hover-color);
+      background-color: var(--hover-bg-color);
+      border-color: var(--hover-border-color);
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 0.2rem var(--focus-box-shadow);
+  }
+
+  &:active {
+    background-color: var(--active-bg-color);
+    border-color: var(--active-border-color);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    color: var(--disabled-color);
+    background-color: var(--disabled-bg-color);
+    border-color: var(--disabled-border-color);
+  }
+
+  &_selected {
+    pointer-events: none;
+    color: var(--selected-color);
+    background-color: var(--selected-bg-color);
+    border-color: var(--selected-border-color);
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+  }
+
+  &_capitalized {
+    text-transform: capitalize;
+  }
+}
