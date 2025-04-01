@@ -5,9 +5,6 @@ import TodosFooter from '../TodosFooter/TodosFooter';
 import './Todos.scss';
 
 export const TODOS = 'todos';
-export const TODOS_INPUT = `${TODOS}__input`;
-export const TODOS_LIST = `${TODOS}__list`;
-export const TODOS_ITEM = `${TODOS}__item`;
 
 const Todos: FC = () => {
   return (
