@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import { Filters, selectTodosFilter } from '../../../store/todosSlice';
 import { useAppSelector } from '../../../hooks/store-hooks';
 import Button from '../../shared/Button/Button';
@@ -25,4 +25,4 @@ const TodosTabs: FC = () => {
   return <div className={TODOS_TABS}>{tabs}</div>;
 };
 
-export default TodosTabs;
+export default memo(TodosTabs);

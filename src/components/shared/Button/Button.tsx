@@ -1,4 +1,4 @@
-import { ComponentProps, FC } from 'react';
+import { ComponentProps, FC, memo } from 'react';
 import classNames from 'classnames';
 import './button.scss';
 
@@ -26,4 +26,4 @@ const Button: FC<TButtonProps> = (props) => {
   );
 };
 
-export default Button;
+export default memo(Button);
