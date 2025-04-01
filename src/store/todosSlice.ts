@@ -17,27 +17,11 @@ export type TodosState = { filter: Filters; todos: Todo[] };
 
 let nextId = 0;
 
-const getNextId = () => nextId++;
+export const getNextId = () => nextId++;
 
 const initialState: TodosState = {
   filter: Filters.all,
-  todos: [
-    {
-      task: 'Тестовое задание',
-      code: getNextId(),
-      completed: false,
-    },
-    {
-      task: 'Прекрасный код',
-      code: getNextId(),
-      completed: true,
-    },
-    {
-      task: 'Покрытие тестами',
-      code: getNextId(),
-      completed: false,
-    },
-  ],
+  todos: [],
 };
 
 export const SLICE_NAME = 'todos';
