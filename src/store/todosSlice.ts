@@ -50,12 +50,15 @@ export const createAuthSlice = (initialState: TodosState, sliceName: string) =>
       todoAdded(state, action: PayloadAction<string>) {
         state.todos.push({ task: action.payload, code: getNextId(), completed: false });
       },
+      completedTodosDeleted(state) {
+        state.todos = state.todos.filter((todo) => !todo.completed);
+      },
     },
   });
 
 export const slice = createAuthSlice(initialState, SLICE_NAME);
 
-export const { todoAdded } = slice.actions;
+export const { todoAdded, completedTodosDeleted } = slice.actions;
 
 export const selectTodos = (state: RootState) => state[SLICE_NAME].todos;
 export const selectTodosFilter = (state: RootState) => state[SLICE_NAME].filter;

@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { useAppSelector } from '../../../hooks/store-hooks';
-import { selectTodos } from '../../../store/todosSlice';
+import { FC, useCallback } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../hooks/store-hooks';
+import { completedTodosDeleted, selectTodos } from '../../../store/todosSlice';
 import TodosTabs from '../TodosTabs/TodosTabs';
 import Button from '../../shared/Button/Button';
 import './TodosFooter.scss';
@@ -23,14 +23,21 @@ const getCounterText = (count: number): string => {
 
 const TodosFooter: FC = () => {
   const todos = useAppSelector(selectTodos);
+  const dispatch = useAppDispatch();
   const count = todos.filter((todo) => !todo.completed).length;
   const counterText = getCounterText(count);
+
+  const handleClearBtnClick = useCallback(() => {
+    dispatch(completedTodosDeleted());
+  }, [dispatch]);
 
   return (
     <div className={TODOS_FOOTER}>
       <span className={TODOS_FOOTER_COUNTER_TEXT}>{counterText}</span>
       <TodosTabs />
-      <Button className={TODOS_FOOTER_BTN}>Clear completed</Button>
+      <Button className={TODOS_FOOTER_BTN} onClick={handleClearBtnClick}>
+        Clear completed
+      </Button>
     </div>
   );
 };
