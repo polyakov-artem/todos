@@ -1,0 +1,44 @@
+.todos-header {
+  border-bottom: 1px solid var(--gray-1-50);
+
+  &__input-group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input-icon {
+    padding: 0 var(--g-default-padding);
+
+    &::after {
+      content: '❯';
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(90deg);
+      color: var(--gray-1-50);
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    outline: 0;
+    transition:
+      0.2s ease color,
+      0.2s ease box-shadow,
+      0.2s ease background-color;
+
+    color: var(--black-1);
+    border-color: transparent;
+    background-color: transparent;
+    padding: var(--g-default-padding);
+    padding-left: 0;
+
+    &::placeholder {
+      color: var(--gray-1-50);
+      font-style: italic;
+    }
+  }
+}

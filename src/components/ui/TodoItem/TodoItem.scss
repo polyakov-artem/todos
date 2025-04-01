@@ -1,0 +1,36 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: var(--g-default-padding);
+  padding: var(--g-default-padding);
+  border-bottom: 1px solid var(--gray-1-50);
+  cursor: pointer;
+
+  &__icon {
+    border: 1px solid var(--gray-1);
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  &_completed {
+    color: var(--gray-1);
+
+    .todo-item__text {
+      text-decoration: line-through;
+    }
+
+    .todo-item__icon {
+      color: var(--green-1);
+      border: 1px solid var(--green-1);
+
+      &::after {
+        content: '✓';
+      }
+    }
+  }
+}

@@ -34,4 +34,18 @@ body {
   flex-direction: column;
   min-height: 100dvh;
   position: relative;
+
+  &__wrap {
+    max-width: var(--g-container-max-width);
+    padding: var(--g-default-padding);
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.page__title {
+  font-size: 5rem;
+  font-weight: 100;
+  color: var(--red-1);
+  text-align: center;
 }

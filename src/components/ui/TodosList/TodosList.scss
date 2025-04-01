@@ -1,0 +1,5 @@
+@use './../../../scss/abstracts/mixins';
+
+.todos-list {
+  @include mixins.list;
+}
