@@ -59,12 +59,16 @@ export const createAuthSlice = (initialState: TodosState, sliceName: string) =>
           changeTodo.completed = !changeTodo.completed;
         }
       },
+      todosFilterChanged(state, action: PayloadAction<Filters>) {
+        state.filter = action.payload;
+      },
     },
   });
 
 export const slice = createAuthSlice(initialState, SLICE_NAME);
 
-export const { todoAdded, completedTodosDeleted, todoStateChanged } = slice.actions;
+export const { todoAdded, completedTodosDeleted, todoStateChanged, todosFilterChanged } =
+  slice.actions;
 
 export const selectTodos = (state: RootState) => state[SLICE_NAME].todos;
 export const selectTodosFilter = (state: RootState) => state[SLICE_NAME].filter;
