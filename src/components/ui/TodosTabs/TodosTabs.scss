@@ -1,0 +1,7 @@
+@use './../../../scss/abstracts/mixins';
+
+.todos-tabs {
+  @include mixins.list;
+  display: flex;
+  gap: 1rem;
+}

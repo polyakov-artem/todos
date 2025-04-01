@@ -1,19 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
+export enum Filters {
+  all = 'all',
+  active = 'active',
+  completed = 'completed',
+}
+
 export type Todo = {
   task: string;
   code: number;
   completed: boolean;
 };
 
-export type TodosState = { todos: Todo[] };
+export type TodosState = { filter: Filters; todos: Todo[] };
 
 let nextId = 0;
 
 const getNextId = () => nextId++;
 
 const initialState: TodosState = {
+  filter: Filters.all,
   todos: [
     {
       task: 'Тестовое задание',
@@ -44,5 +51,6 @@ export const createAuthSlice = (initialState: TodosState, sliceName: string) =>
 
 export const slice = createAuthSlice(initialState, SLICE_NAME);
 export const selectTodos = (state: RootState) => state[SLICE_NAME].todos;
+export const selectTodosFilter = (state: RootState) => state[SLICE_NAME].filter;
 
 export default slice.reducer;
