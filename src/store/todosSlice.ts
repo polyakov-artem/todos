@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
 export enum Filters {
@@ -46,10 +46,17 @@ export const createAuthSlice = (initialState: TodosState, sliceName: string) =>
   createSlice({
     initialState,
     name: sliceName,
-    reducers: {},
+    reducers: {
+      todoAdded(state, action: PayloadAction<string>) {
+        state.todos.push({ task: action.payload, code: getNextId(), completed: false });
+      },
+    },
   });
 
 export const slice = createAuthSlice(initialState, SLICE_NAME);
+
+export const { todoAdded } = slice.actions;
+
 export const selectTodos = (state: RootState) => state[SLICE_NAME].todos;
 export const selectTodosFilter = (state: RootState) => state[SLICE_NAME].filter;
 

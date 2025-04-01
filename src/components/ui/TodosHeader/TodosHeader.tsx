@@ -1,4 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useCallback, useState } from 'react';
+import { useAppDispatch } from '../../../hooks/store-hooks';
+import { todoAdded } from '../../../store/todosSlice';
 import './TodosHeader.scss';
 
 interface CustomElements extends HTMLFormControlsCollection {
@@ -18,17 +20,21 @@ const PLACEHOLDER = 'What needs to be done';
 
 const TodosHeader: FC = () => {
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useAppDispatch();
 
   const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   }, []);
 
-  const handleSubmit = useCallback((e: FormEvent<CustomForm>) => {
-    e.preventDefault();
-    const value = e.currentTarget.elements.task.value;
-    console.log('value', value);
-    setInputValue('');
-  }, []);
+  const handleSubmit = useCallback(
+    (e: FormEvent<CustomForm>) => {
+      e.preventDefault();
+      const value = e.currentTarget.elements.task.value;
+      dispatch(todoAdded(value));
+      setInputValue('');
+    },
+    [dispatch]
+  );
 
   return (
     <div className={TODOS_HEADER}>
