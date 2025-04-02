@@ -16,7 +16,7 @@ export const TODOS_HEADER_FORM = `${TODOS_HEADER}__form`;
 export const TODOS_HEADER_INPUT = `${TODOS_HEADER}__input`;
 export const TODOS_HEADER_INPUT_GROUP = `${TODOS_HEADER}__input-group`;
 export const TODOS_HEADER_INPUT_ICON = `${TODOS_HEADER}__input-icon`;
-const PLACEHOLDER = 'What needs to be done';
+export const PLACEHOLDER = 'What needs to be done';
 
 const TodosHeader: FC = () => {
   const [inputValue, setInputValue] = useState('');

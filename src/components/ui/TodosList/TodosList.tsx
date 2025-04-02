@@ -37,7 +37,11 @@ const TodosList: FC = () => {
     ));
   }, [filter, todos, handleItemClick]);
 
-  return <ul className={TODOS_LIST}>{todoItems}</ul>;
+  return (
+    <ul className={TODOS_LIST} data-testid={TODOS_LIST}>
+      {todoItems}
+    </ul>
+  );
 };
 
 export default TodosList;

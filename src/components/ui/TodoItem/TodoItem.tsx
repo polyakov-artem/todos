@@ -22,7 +22,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, onClick }) => {
   }, [onClick, code]);
 
   return (
-    <li className={classes} onClick={handleClick}>
+    <li className={classes} onClick={handleClick} data-testid={TODO_ITEM}>
       <span className={TODO_ITEM_ICON} />
       <span className={TODO_ITEM_TEXT}>{task}</span>
     </li>

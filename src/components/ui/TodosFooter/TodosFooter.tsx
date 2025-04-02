@@ -33,7 +33,9 @@ const TodosFooter: FC = () => {
 
   return (
     <div className={TODOS_FOOTER}>
-      <span className={TODOS_FOOTER_COUNTER_TEXT}>{counterText}</span>
+      <span className={TODOS_FOOTER_COUNTER_TEXT} data-testid={TODOS_FOOTER_COUNTER_TEXT}>
+        {counterText}
+      </span>
       <TodosTabs />
       <Button className={TODOS_FOOTER_BTN} onClick={handleClearBtnClick}>
         Clear completed
