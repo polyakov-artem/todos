@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -12,7 +12,8 @@
     "lint:fix": "eslint . --fix",
     "format:fix": "prettier . --write",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "deploy": "gh-pages -d dist"
   },
   "lint-staged": {
     "*.{css,scss,sass}": [
@@ -27,6 +28,7 @@
     "@reduxjs/toolkit": "^2.6.0",
     "classnames": "^2.5.1",
     "eslint-plugin-react": "^7.37.4",
+    "gh-pages": "^6.3.0",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
