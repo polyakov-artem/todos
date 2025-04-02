@@ -1,4 +1,5 @@
 import Todos from './components/ui/Todos/Todos';
+import 'normalize.css';
 import './scss/index.scss';
 
 export const PAGE = 'page';
